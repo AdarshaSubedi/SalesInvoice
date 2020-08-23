@@ -1,0 +1,33 @@
+
+<mat-toolbar>
+    <span>{{prodservice.form.controls['productId'].value?"Modify Product" : "New Product"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"> <mat-icon>clear</mat-icon> </button>
+</mat-toolbar>
+<form [formGroup]="prodservice.form" class="normal-form" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="1" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controls-container">
+                <input type="hidden" formControlName="productId">
+                <mat-form-field>
+                    <input formControlName="productName" matInput placeholder="Name *">
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="unitPrice" matInput placeholder="Price *">
+                    <mat-error>This field is mandatory</mat-error>
+                    <mat-error *ngIf="prodservice.form.controls['unitPrice'].errors?.pattern">characters not allowed</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea rows="5" formControlName="description" matInput placeholder="Description"></textarea>
+                </mat-form-field>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="prodservice.form.invalid">Submit</button>
+                    <button mat-raised-button color="warn" type="submit" (click)="onClear()">Clear</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    
+</form>

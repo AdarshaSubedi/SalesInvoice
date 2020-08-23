@@ -1,0 +1,39 @@
+<mat-toolbar>
+    <span>{{custservice.form.controls['customerId'].value?"Modify Customer" : "New Employee"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"> <mat-icon>clear</mat-icon> </button>
+</mat-toolbar>
+<form [formGroup]="custservice.form" class="normal-form" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="1" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controls-container">
+                <input type="hidden" formControlName="customerId">
+                <mat-form-field>
+                    <input formControlName="customerName" matInput placeholder="Name*">
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="customerEmail" matInput placeholder="Email">
+                    <mat-error>Invalid Email</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="customerContact" matInput placeholder="Contact*">
+                    <mat-error *ngIf="custservice.form.controls['customerContact'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="custservice.form.controls['customerContact'].errors?.pattern">characters not allowed</mat-error>
+                    <mat-error *ngIf="custservice.form.controls['customerContact'].errors?.minlength">Minimum 7 characters needed</mat-error>
+                    <mat-error *ngIf="custservice.form.controls['customerContact'].errors?.maxlength">Maximum 10 characters allowed</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="customerAddress" matInput placeholder="Address*">
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="custservice.form.invalid">Submit</button>
+                    <button mat-raised-button color="warn" type="submit" (click)="onClear()">Clear</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    
+</form>

@@ -1,0 +1,79 @@
+<div class="container">
+  <mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>Products</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+  <app-product-list></app-product-list>
+</div>
+
+
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="sn">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let prod; let i = index;"> {{i+1}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="productName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let prod"> {{prod.productName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="unitPrice">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let prod"> {{prod.unitPrice}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let prod"> {{prod.description}} </td>
+	</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+<!-- ============================================================================ -->
+<!-- <div class="container" style="margin:100px;">
+    <h2>Product Form</h2>
+  
+      <form [formGroup]="productForm" (ngSubmit)="OnSubmit()"> 
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="text" class="form-control" formControlName="productName" id="name" aria-describedby="emailHelp" placeholder="name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Price</label>
+            <input type="number" class="form-control" formControlName="unitPrice" id="email" aria-describedby="emailHelp" placeholder="price">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">{{btnSave}}</button>
+        </form>
+  </div>
+   -->
+  <!-- <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S. No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of productList; let i = index;">
+        <td>{{i+1}}</td>
+        <td>{{prod.productName}}</td>
+        <td>{{prod.unitPrice}}</td>
+        <td>{{prod.description}}</td>
+        <td><button (click)="edit(prod.productId)">Edit</button></td>
+        <td><button (click)="delete(prod.productId)">delete</button></td>  
+      </tr>
+    </tbody> 
+  </table> -->
